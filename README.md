@@ -7,7 +7,7 @@
 Before you start make sure you have the [Docker Toolbox](https://www.docker.com/products/docker-toolbox) and [Docker Compose](https://docs.docker.com/compose/install/) installed on your machine.
 
 ### Config
-Before you start your application make sure you have create the file **.env** with the PATH to the app. Please take a look into the example on the file **.env.example**
+Before you start your application make sure you have created the file **.env** with the PATH to the app. Please take a look into the example on the file **.env.example**
 
 ### Run
 To start you application you just need to run the following commands: 

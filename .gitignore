@@ -49,3 +49,6 @@ fabric.properties
 .idea/
 
 .env
+
+logs
+
