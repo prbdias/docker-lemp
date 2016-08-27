@@ -1,0 +1,50 @@
+version: '2'
+services:
+  ### PHP-FPM Container
+  php-fpm:
+    build: ./build/php-fpm
+    volumes_from:
+      - application
+    expose:
+      - "9000"
+    links:
+      - mysql
+  
+  ### NGINX Container
+  nginx:
+    build: ./build/nginx
+    volumes_from:
+      - application
+    volumes:
+      - ./logs/nginx/:/var/log/nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    links:
+      - php-fpm
+
+  ### MySQL Container
+  mysql:
+    build: ./build/mysql
+    volumes:
+      - /var/lib/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: app
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: admin
+
+  ### Application Code Container
+  application:
+    build: ./build/application
+    volumes:
+      - ./app/:/var/www/app
+
+  ### Workspace Utilities Container
+  workspace:
+    build: ./build/workspace
+    volumes_from:
+      - application
+    tty: true
