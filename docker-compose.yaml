@@ -40,7 +40,7 @@ services:
   application:
     build: ./build/application
     volumes:
-      - ./app/:/var/www/app
+      - ${APP_PATH}:/var/www/app
 
   ### Workspace Utilities Container
   workspace:
