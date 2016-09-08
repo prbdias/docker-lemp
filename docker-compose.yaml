@@ -31,10 +31,10 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_DATABASE: app
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: secret
-      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASS}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASS}
 
   ### Application Code Container
   application:
