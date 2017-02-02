@@ -9,6 +9,7 @@ services:
       - "9000"
     links:
       - mysql
+      - redis
   
   ### NGINX Container
   nginx:
@@ -36,6 +37,12 @@ services:
       MYSQL_PASSWORD: ${DB_PASS}
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASS}
 
+  ### Redis Container
+  redis:
+    image: redis
+    ports:
+        - "6379:6379"
+
   ### Application Code Container
   application:
     build: ./build/application
@@ -47,4 +54,7 @@ services:
     build: ./build/workspace
     volumes_from:
       - application
+    links:
+      - mysql
+      - redis
     tty: true

@@ -19,17 +19,17 @@ RUN apt-get update && apt-get install -y \
 RUN add-apt-repository -y \
     ppa:ondrej/php
 
-# Install PHP-CLI 5.6, some PHP extentions and some useful Tools with APT
+# Install PHP-CLI 7.1, some PHP extentions and some useful Tools with APT
 RUN apt-get update && apt-get install -y --force-yes \
-        php5.6-cli \
-        php5.6-common \
-        php5.6-curl \
-        php5.6-json \
-        php5.6-xml \
-        php5.6-mbstring \
-        php5.6-mcrypt \
-        php5.6-mysql \
-        php5.6-memcached \
+        php7.1-cli \
+        php7.1-common \
+        php7.1-curl \
+        php7.1-json \
+        php7.1-xml \
+        php7.1-mbstring \
+        php7.1-mcrypt \
+        php7.1-mysql \
+        php-memcached \
         git \
         curl \
         nano \
@@ -62,4 +62,8 @@ RUN . ~/.bashrc
 # Clean up
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-WORKDIR /var/www/app
+RUN mkdir /app
+
+ENV COMPOSER_ALLOW_SUPERUSER 1
+
+WORKDIR /app
