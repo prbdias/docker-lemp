@@ -30,6 +30,7 @@ RUN apt-get update && apt-get install -y --force-yes \
         php7.1-mcrypt \
         php7.1-mysql \
         php-memcached \
+        php-xdebug \
         git \
         curl \
         nano \
