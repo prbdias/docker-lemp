@@ -36,7 +36,8 @@ RUN apt-get update && apt-get install -y --force-yes \
         nano \
         nodejs \
         nodejs-dev \
-        npm
+        npm \
+        iputils-ping
 
 # Clean up, to free some space
 RUN apt-get clean
@@ -63,8 +64,6 @@ RUN . ~/.bashrc
 # Clean up
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN mkdir /app
-
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
-WORKDIR /app
+WORKDIR /var/www/app
