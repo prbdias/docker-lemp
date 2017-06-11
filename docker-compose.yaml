@@ -3,6 +3,8 @@ services:
   ### PHP-FPM Container
   php-fpm:
     build: ./build/php-fpm
+    environment:
+      APP_NAME: ${APP_NAME}
     volumes_from:
       - application
     expose:
@@ -14,6 +16,8 @@ services:
   ### NGINX Container
   nginx:
     build: ./build/nginx
+    environment:
+      APP_NAME: ${APP_NAME}
     volumes_from:
       - application
     volumes:
@@ -46,12 +50,16 @@ services:
   ### Application Code Container
   application:
     build: ./build/application
+    environment:
+      APP_NAME: ${APP_NAME}
     volumes:
-      - ${APP_PATH}:/var/www/app
+      - ${APP_PATH}:/var/www/${APP_NAME}
 
   ### Workspace Utilities Container
   workspace:
     build: ./build/workspace
+    environment:
+      APP_NAME: ${APP_NAME}
     volumes_from:
       - application
     links:

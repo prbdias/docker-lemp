@@ -15,7 +15,7 @@ RUN docker-php-ext-install \
 
 RUN usermod -u 1000 www-data
 
-WORKDIR /var/www/app
+WORKDIR /var/www/${APP_NAME:-app}
 
 CMD ["php-fpm"]
 

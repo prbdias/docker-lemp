@@ -66,4 +66,4 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
-WORKDIR /var/www/app
+WORKDIR /var/www/${APP_NAME:-app}
