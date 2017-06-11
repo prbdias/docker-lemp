@@ -17,7 +17,7 @@ services:
   nginx:
     build: ./build/nginx
     environment:
-      APP_NAME: ${APP_NAME}
+      ROOT_PATH: ${NGINX_ROOT_PATH}
     volumes_from:
       - application
     volumes:

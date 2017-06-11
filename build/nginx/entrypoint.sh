@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-sed -i 's/${APP_NAME}/'"$APP_NAME"'/g' /etc/nginx/sites-available/site.conf
+sed -i 's@${ROOT_PATH}@'"$ROOT_PATH"'@g' /etc/nginx/sites-available/site.conf
 nginx
