@@ -9,7 +9,8 @@ Before you start your application make sure you have created the file **.env** w
 
 ### Run
 To start you application you just need to run the following commands: 
-    $ git clone http://git.denied.network/socialleague/docker-lemp.git
+
+    $ git clone https://github.com/prbdias/docker-lemp.git
     $ docker-compose up -d --build
     
 ### Test
