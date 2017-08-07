@@ -1,6 +1,4 @@
-# Social League
-## Docker LEMP Stack
-
+# Docker LEMP Stack
 
 ### Install
 
